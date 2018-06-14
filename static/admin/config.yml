@@ -8,7 +8,7 @@ public_folder: /img
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "src/pages/blog"
+    folder: "src/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -20,8 +20,8 @@ collections:
       - {label: "Tags", name: "tags", widget: "list"}
 
   - name: "events"
-    label: "Event"
-    folder: "src/pages/events"
+    label: "Evenementen"
+    folder: "src/content/evenementen"
     create: true
     slug: "{{slug}}"
     fields:
@@ -34,14 +34,14 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - file: "src/pages/about/index.md"
+      - file: "src/content/about/index.md"
         label: "About"
         name: "about"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
-      - file: "src/pages/products/index.md"
+      - file: "src/content/products/index.md"
         label: "Products Page"
         name: "products"
         fields:
