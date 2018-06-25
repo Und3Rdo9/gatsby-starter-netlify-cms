@@ -52,7 +52,7 @@ collections:
       - {label: "Opmerkingen", name: "remarks", widget: "text"}
       - {label: "Trainer", name: "trainer", widget: "text"}
       - label: "Teams"
-        name: "teams"
+        name: "trainingTeams"
         widget: "relation"
         collection: "teams"
         searchFields: ["teamName", "description"]
