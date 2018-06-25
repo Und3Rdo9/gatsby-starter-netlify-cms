@@ -64,9 +64,9 @@ collections:
           name: "trainingTeams"
           widget: "relation"
           collection: "teams"
-          searchFields: ["teamName", "description"]
-          valueField: "teamName"
-          displayFields: ["teamName"]                 
+          searchFields: ["title", "description"]
+          valueField: "title"
+          displayFields: ["title"]                 
 
   - name: "teams"
     label: "Teams"
