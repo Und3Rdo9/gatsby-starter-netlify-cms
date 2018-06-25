@@ -33,31 +33,36 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "training"
-    label: "Trainingen"
+  - name: "trainingSchedule"
+    label: "Trainingstabel"
     folder: "src/content/training"
     create: true
     slug: "{{slug}}"
     fields:
+      - {label: "Title", name: "title", widget: "string"}
       - label: "Trainingstype"
         name: "type"
         widget: "select"
         options: ["veld", "zaal"] 
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
-      - label: "Trainingsdag"
-        name: "day"
-        widget: "select"
-        options: ["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag", "zondag"]
-      - {label: "Trainingstijd", name: "time", widget: "string"}
-      - {label: "Opmerkingen", name: "remarks", widget: "text"}
-      - {label: "Trainer", name: "trainer", widget: "text"}
-      - label: "Teams"
-        name: "trainingTeams"
-        widget: "relation"
-        collection: "teams"
-        searchFields: ["teamName", "description"]
-        valueField: "teamName"
-        displayFields: ["teamName"]                 
+      - label: "Trainingen"
+        name: "trainings"
+        widget: "list"
+        fields: 
+        - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
+        - label: "Trainingsdag"
+          name: "day"
+          widget: "select"
+          options: ["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag", "zondag"]
+        - {label: "Trainingstijd", name: "time", widget: "string"}
+        - {label: "Opmerkingen", name: "remarks", widget: "text"}
+        - {label: "Trainer", name: "trainer", widget: "text"}
+        - label: "Teams"
+          name: "trainingTeams"
+          widget: "relation"
+          collection: "teams"
+          searchFields: ["teamName", "description"]
+          valueField: "teamName"
+          displayFields: ["teamName"]                 
 
   - name: "teams"
     label: "Teams"
