@@ -23,7 +23,7 @@ collections:
 
   - name: "events"
     label: "Evenementen"
-    folder: "src/content/evenementen"
+    folder: "src/content/agenda"
     create: true
     slug: "{{slug}}"
     fields:
@@ -32,6 +32,53 @@ collections:
       - {label: "Event Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "training"
+    label: "Trainingen"
+    folder: "src/content/training"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: "Trainingstype"
+        name: "type"
+        widget: "select"
+        options: ["veld", "zaal"] 
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
+      - label: "Trainingsdag"
+        name: "day"
+        widget: "select"
+        options: ["maandag", "dinsdag", "woensdag", "donderdag", "vrijdag", "zaterdag", "zondag"]
+      - {label: "Trainingstijd", name: "time", widget: "string"}
+      - {label: "Opmerkingen", name: "remarks", widget: "text"}
+      - {label: "Trainer", name: "trainer", widget: "text"}
+      - label: "Teams"
+        name: "teams"
+        widget: "relation"
+        collection: "teams"
+        searchFields: ["teamName", "description"]
+        valueField: "teamName"
+        displayFields: ["teamName"]                 
+
+  - name: "teams"
+    label: "Teams"
+    folder: "src/content/teams"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
+      - {label: "Teamnaam", name: "teamName", widget: "string"}
+      - {label: "Teamfoto", name: "teamPhoto", widget: image}
+      - {label: "Team-ID Zaal", name: "teamIdIndoor", widget: "string"}
+      - {label: "Team-ID Veld", name: "teamIdOutdoor", widget: "string"}
+      - {label: "Description", name: "teamDescription", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - label: "Spelers"
+        name: "players"
+        widget: "list"
+        fields:
+          - {label: "Openbaar", name: "public", widget: "boolean", default: true}
+          - {label: "Naam", name: "playerName", widget: "string"}
+          - {label: "Foto", name: "playerPhoto", widget: "image"}
 
   - name: "pages"
     label: "Pages"
