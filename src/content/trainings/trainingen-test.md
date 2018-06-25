@@ -7,6 +7,6 @@ trainings:
     remarks: Test opmk
     time: '19:00'
     trainer: Sicco
-    trainingTeams: ''
+    trainingTeams: Heren Senioren 1
 ---
 
