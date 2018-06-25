@@ -10,6 +10,7 @@ public_folder: /img
 collections:
   - name: "blog"
     label: "Blog"
+    label_singular: "Blogartikel"
     folder: "src/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -23,6 +24,7 @@ collections:
 
   - name: "events"
     label: "Evenementen"
+    label_singular: "Evenement"
     folder: "src/content/agenda"
     create: true
     slug: "{{slug}}"
@@ -33,22 +35,24 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
 
-  - name: "trainingSchedule"
-    label: "Trainingstabel"
-    folder: "src/content/training"
+  - name: "trainingSchedules"
+    label: "Trainingen"
+    label_singular: "Trainingstabel"
+    folder: "src/content/trainings"
     create: true
     slug: "{{slug}}"
     fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
       - {label: "Title", name: "title", widget: "string"}
       - label: "Trainingstype"
         name: "type"
         widget: "select"
         options: ["veld", "zaal"] 
       - label: "Trainingen"
+        label_singular: "Training"
         name: "trainings"
         widget: "list"
         fields: 
-        - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
         - label: "Trainingsdag"
           name: "day"
           widget: "select"
@@ -66,27 +70,29 @@ collections:
 
   - name: "teams"
     label: "Teams"
+    label_singular: "Team"
     folder: "src/content/teams"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "event"}
-      - {label: "Teamnaam", name: "teamName", widget: "string"}
-      - {label: "Teamfoto", name: "teamPhoto", widget: image}
-      - {label: "Team-ID Zaal", name: "teamIdIndoor", widget: "string"}
-      - {label: "Team-ID Veld", name: "teamIdOutdoor", widget: "string"}
-      - {label: "Description", name: "teamDescription", widget: "text"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "team"}
+      - {label: "Teamnaam", name: "title", widget: "string"}
+      - {label: "Teamfoto", name: "photo", widget: image, required: false}
+      - {label: "Team-ID Zaal", name: "indoorId", widget: "string", required: false}
+      - {label: "Team-ID Veld", name: "outdoorId", widget: "string", required: false}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown", required: false}
       - label: "Spelers"
         name: "players"
         widget: "list"
         fields:
           - {label: "Openbaar", name: "public", widget: "boolean", default: true}
-          - {label: "Naam", name: "playerName", widget: "string"}
-          - {label: "Foto", name: "playerPhoto", widget: "image"}
+          - {label: "Naam", name: "name", widget: "string"}
+          - {label: "Foto", name: "photo", widget: "image", required: false}
 
   - name: "pages"
-    label: "Pages"
+    label: "Pagina's"
+    label_singular: "Pagina"
     files:
       - file: "src/content/about/index.md"
         label: "About"
