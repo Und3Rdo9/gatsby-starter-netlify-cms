@@ -61,12 +61,16 @@ collections:
         - {label: "Opmerkingen", name: "remarks", widget: "text"}
         - {label: "Trainer", name: "trainer", widget: "text"}
         - label: "Teams"
-          name: "trainingTeams"
-          widget: "relation"
-          collection: "teams"
-          searchFields: ["title", "description"]
-          valueField: "title"
-          displayFields: ["title"]                 
+          name: "teams"
+          widget: "list"
+          field:
+          - label: "Team"
+            name: "team"
+            widget: "relation"
+            collection: "teams"
+            searchFields: ["title", "description"]
+            valueField: "slug"
+            displayFields: ["title"]                 
 
   - name: "teams"
     label: "Teams"
